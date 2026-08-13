@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Cumpleaños ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,sans-serif;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:24px;
+background:linear-gradient(135deg,#F7F6F3 0%,#EEF3F7 50%,#ECE7F7 100%);
+overflow:hidden;
+position:relative;
+}
+.bg-shape{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35}
+.shape1{width:300px;height:300px;background:#ffd7d7;top:-80px;left:-80px}
+.shape2{width:250px;height:250px;background:#dcd6ff;bottom:-80px;right:-80px}
+.card{
+display:none;background:#fff;max-width:700px;width:100%;
+padding:40px;border-radius:32px;text-align:center;
+box-shadow:0 20px 60px rgba(0,0,0,.08);
+position:relative;z-index:2;
+}
+.card.active{display:block}
+.tag{display:inline-block;padding:8px 14px;border-radius:999px;background:#fff2f2;color:#ff6363;margin-bottom:20px}
+h1,h2{margin-bottom:15px;color:#2f3542}
+p{line-height:1.8;color:#5c6570;margin-bottom:12px}
+.btn{
+background:#ff6b6b;color:white;border:none;padding:14px 26px;
+border-radius:14px;cursor:pointer;margin-top:20px;font-weight:700;
+}
+.option{
+display:block;text-align:left;padding:14px;margin:10px 0;
+border:2px solid #eee;border-radius:14px;cursor:pointer;
+}
+.option input{margin-right:10px}
+.sticker,.gif{max-width:220px;margin:20px auto;display:block}
+
+.floating{
+position:fixed;
+pointer-events:none;
+opacity:.25;
+animation:float 8s ease-in-out infinite;
+z-index:1;
+}
+
+.heart1{
+top:12%;
+left:8%;
+font-size:22px;
+}
+
+.heart2{
+top:20%;
+right:12%;
+font-size:20px;
+animation-delay:2s;
+}
+
+.heart3{
+bottom:18%;
+left:15%;
+font-size:18px;
+animation-delay:4s;
+}
+
+.heart4{
+bottom:30%;
+right:18%;
+font-size:24px;
+animation-delay:1s;
+}
+
+.star1{
+bottom:15%;
+right:10%;
+font-size:18px;
+animation-delay:1s;
+}
+
+.star2{
+top:35%;
+left:18%;
+font-size:16px;
+animation-delay:3s;
+}
+
+.star3{
+top:10%;
+right:25%;
+font-size:20px;
+animation-delay:5s;
+}
+
+.gif{
+
+width:260px;
+
+display:block;
+
+margin:25px auto;
+
+}
+
+@keyframes float{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-12px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+.bar{
+height:14px;
+background:#ececec;
+border-radius:999px;
+overflow:hidden;
+margin:25px auto;
+max-width:320px;
+}
+
+.fill{
+height:100%;
+width:0%;
+background:linear-gradient(
+90deg,
+#ff8a8a,
+#ff6b6b
+);
+border-radius:999px;
+transition:1.5s ease;
+}
+</style>
+</head>
+<body>
+
+<div class="floating heart1">💜</div>
+<div class="floating heart2">💜</div>
+<div class="floating heart3">🤍</div>
+<div class="floating heart4">💖</div>
+
+<div class="floating star1">✨</div>
+<div class="floating star2">✨</div>
+<div class="floating star3">⭐</div>
+<div class="bg-shape shape1"></div>
+<div class="bg-shape shape2"></div>
+
+<div class="card active" id="p1">
+<div class="tag">✨ Una pequeña interrupción</div>
+<h1>Oye...</h1>
+<p>Sé que estás ocupado y cansado probablemente.</p>
+<img class="sticker" src="nina.png">
+<p>Pero me gustaría que me ayudaras a revisar una cosa.<br><br>Prometo que no te tomará mucho tiempo 😌</p>
+<button class="btn" onclick="go(2)">Continúa precioso</button>
+</div>
+
+<div class="card" id="p2">
+<h2>Necesito comprobar que tanto sabes...</h2>
+<p>¿Qué crees que es lo que más me gusta de ti?</p>
+<label class="option"><input type="radio" name="a">Tu carita preciosa 🥺</label>
+<label class="option"><input type="radio" name="a">Tu crespito coqueto 🫢</label>
+<label class="option"><input type="radio" name="a">Todo lo que veo en las fotos... sabes a qué me refiero 😏</label>
+<label class="option"><input type="radio" name="a">Tooooodas las anteriores obvi ✨</label>
+<button class="btn" onclick="go(3)">Confirmar</button>
+</div>
+
+<div class="card" id="p3">
+
+<h2>Analizando tu respuesta...</h2>
+
+<div class="bar">
+<div class="fill" id="fill1"></div>
+</div>
+
+<p>🔎 Verificando información...</p>
+
+<button class="btn" onclick="go(4)">
+Ver resultado
+</button>
+
+</div>
+<div class="card" id="p4">
+<p><b>Dudo mucho que hayas fallado</b></p>
+<p>La respuesta correcta era:</p>
+<h2>✨ Tooooodas las anteriores obvi ✨</h2>
+<img class="gif" src="niña-japonesa.gif">
+<p>No había forma de fallar 😌</p>
+<p>Aunque la tercera opción era una respuesta bastante válida también... 🤭</p>
+<button class="btn" onclick="go(5)">Continúa cielo</button>
+</div>
+
+<div class="card" id="p5">
+<h2>¿Qué crees que admiro más de ti? 🙂</h2>
+<label class="option"><input type="radio" name="b">Que eres un chico inteligente 🤓</label>
+<label class="option"><input type="radio" name="b">Que dibujas precioso 🎨</label>
+<label class="option"><input type="radio" name="b">Que cocinas deli (o pues eso parece en las fotos) 🍝</label>
+<label class="option"><input type="radio" name="b">Que te cuidas 💪 (excepto cuando te caes 😔)</label>
+<label class="option"><input type="radio" name="b">Todas las anteriores 😌</label>
+<button class="btn" onclick="go(6)">Confirmar</button>
+</div>
+
+<div class="card" id="p6">
+
+<h2>Analizando tu respuesta...</h2>
+
+<div class="bar">
+<div class="fill" id="fill2"></div>
+</div>
+
+<p>🤔 Calculando nivel de acierto...</p>
+
+<button class="btn" onclick="go(7)">
+Ver resultado
+</button>
+
+</div>
+
+<div class="card" id="p7">
+<h2>Todas las anteriores 😌</h2>
+<img class="sticker" src="nina-sorbito.png">
+<p>Era una pregunta bastante fácil, la verdad.</p>
+<p>Aunque la opción de que te cuidas pierde puntos cada vez que te caes jajaj 🤭</p>
+<button class="btn" onclick="go(8)">Siguiente</button>
+</div>
+
+<div class="card" id="p8">
+<h2>Bueno pero no todo puede ser bueno :v</h2>
+<p>¿Qué crees que es lo que menos me gusta de ti?</p>
+<label class="option"><input type="radio" name="c">Que perdamos la racha en TikTok 😞</label>
+<label class="option"><input type="radio" name="c">Las salidas con tus amiguitas 😒</label>
+<label class="option"><input type="radio" name="c">Que tengas un accidente a la semana 😥</label>
+<label class="option"><input type="radio" name="c">Un poco de todo</label>
+<button class="btn" onclick="go(9)">Veredicto final</button>
+</div>
+
+<div class="card" id="p9">
+
+<h2>Analizando tu respuesta...</h2>
+
+<div class="bar">
+<div class="fill" id="fill3"></div>
+</div>
+
+<p>🧐 Revisando evidencia...</p>
+
+<button class="btn" onclick="go(10)">
+Ver resultado
+</button>
+
+</div>
+
+<div class="card" id="p10">
+<h2>Un poco de todo 😌 aunque me pone a dudar la opción dos</h2>
+<img
+class="sticker"
+src="nina-enojada.png"
+alt="">
+<p>...</p>
+<h2>Mentiriiii 😂</h2>
+<p>La última si... cuídate por fitas ✨</p>
+<button class="btn" onclick="go(11)">Bueno ya en serio ❤️</button>
+</div>
+
+<div class="card" id="p11">
+<h2>Espero que hayas tenido un lindo día de cumple precioso ser y que este nuevo año de vida te traiga muchas cosas bonitas ❤️</h2>
+<p>Gracias por compartir tu tiempo conmigo.</p>
+<p>Por las recomendaciones de canciones y películas.</p>
+<p>Por las recetas.</p>
+<p>Por mostrarme tus dibujos preciosos.</p>
+<p>Por las fotos de atardeceres.</p>
+<p>Por las fotos de tu progreso 💪 y las otras también 😏</p>
+<p>Ooooobviamente jajajaja.</p>
+<p>Y gracias también por confiarme cuando un día no va tan bien.</p>
+<button class="btn" onclick="go(12)">Una última cosita...</button>
+</div>
+
+<div class="card" id="p12">
+<h2>Y bueno...</h2>
+<p>Pásala muy bien con tus amiguitas 😒</p>
+<img class="sticker" src="nina-seria.png">
+<button class="btn" onclick="go(13)">Continuar</button>
+</div>
+
+<div class="card" id="p13">
+<h2>Mentiriiii 😂</h2>
+<p>Pásala deli.</p>
+<p>Disfruta mucho.</p>
+<p>Come rico ❤️</p>
+<button class="btn" onclick="go(14)">Fin 🎉</button>
+</div>
+
+<div class="card" id="p14">
+
+<h1>
+🎉 Feliz cumpleaños precioso ser ❤️
+</h1>
+
+<img
+class="gif"
+src="pastel.gif"
+alt="">
+
+<p>
+Gracias por ayudarme con esta importante investigación 😌
+</p>
+
+</div>
+
+<script>
+
+function go(n){
+
+    document.querySelectorAll('.card')
+    .forEach(c => c.classList.remove('active'));
+
+    document.getElementById('p' + n)
+    .classList.add('active');
+
+    if(n === 3){
+
+        const bar = document.getElementById('fill1');
+
+        if(bar){
+
+            bar.style.width = '0%';
+
+            setTimeout(() => {
+                bar.style.width = '100%';
+            }, 100);
+
+        }
+
+    }
+
+    if(n === 6){
+
+        const bar = document.getElementById('fill2');
+
+        if(bar){
+
+            bar.style.width = '0%';
+
+            setTimeout(() => {
+                bar.style.width = '100%';
+            }, 100);
+
+        }
+
+    }
+
+    if(n === 9){
+
+        const bar = document.getElementById('fill3');
+
+        if(bar){
+
+            bar.style.width = '0%';
+
+            setTimeout(() => {
+                bar.style.width = '100%';
+            }, 100);
+
+        }
+
+    }
+
+}
+
+</script>
+</body>
+</html>
